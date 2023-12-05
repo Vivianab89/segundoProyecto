@@ -1,0 +1,73 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <title>Listado de citas médicas</title>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <div>
+        <header class="d-flex justify-content-center py-3">
+            <div class="logo">
+                <center>
+                    <image src="/images/logo-no-background.png" alt="Logo Clinica" width="200px">
+                    </image>
+                </center>
+                <h1 class="nombre-clinica"> Clínica San José Moscati</h1>
+            </div>
+        </header>
+    </div>
+    
+    <main>
+        <h2>Citas agendadas</h2>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th><center>Fecha cita</center></th>
+                    <th><center>Paciente</center></th>
+                    <th><center>Teléfono paciente</center></th>
+                    <th><center>Especialidad</center></th>
+                    <th><center>Consultorio</center></th>
+                    <th><center>Médico</center></th>
+                </tr>
+            </thead>
+            
+            <tbody >
+            <!-- Se agrega el contenido dinamicamente por medio de Handlebars -->
+            {{#each resultado}}
+            <tr>
+                <td>{{formatoFecha fecha_cita}}</td>
+                <td>{{nombres}} {{apellidos}}</td>
+                <td>{{telefono}}</td>
+                <td>{{especialidad}}</td>
+                <td>{{consultorio}}</td>
+                <td>{{nombresMedico}} {{apellidosMedico}}</td>
+            </tr>
+            {{/each}}
+            </tbody>
+        </table>
+        <center><a href="../public/index.html"><button type="button" id="volver" class="btn btn-outline-light">Volver</button></center>
+    </main>
+
+    <div class="container">
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Inicio</a></li>
+                <li class="nav-item"><a href="registro-pacientes.html" class="nav-link px-2 text-body-secondary">Registro de pacientes</a></li>
+                <li class="nav-item"><a href="registro-medicos.html" class="nav-link px-2 text-body-secondary">Registro de médicos</a></li>
+                <li class="nav-item"><a href="listado-pacientes" class="nav-link px-2 text-body-secondary">Listado de pacientes</a></li>
+                <li class="nav-item"><a href="listado-medicos" class="nav-link px-2 text-body-secondary">Listado de médicos</a></li>
+                <li class="nav-item"><a href="consultas-citas.html" class="nav-link px-2 text-body-secondary">Consulta de citas médicas</a></li>
+                <li class="nav-item"><a href="listado-citas" class="nav-link px-2 text-body-secondary">Citas agendadas</a></li>
+            </ul>
+            <p class="text-center text-body-secondary" style="-webkit-text-fill-color: #e8eaec;" >© 2023 Viviana Buitrago - Desarrollo Back End Básico</p>
+        </footer>
+    </div>
+</body>
